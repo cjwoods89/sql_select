@@ -79,7 +79,7 @@
     +------------+-----------+------------+
 6 rows in set (0.00 sec)
 
-Advanced Challenge
+Medium Challenge
 
 1) Create the grade table:
 
@@ -93,7 +93,7 @@ Advanced Challenge
 
     *** Had to modify the grade_id column in assignment to be unsigned in order to add the foreign key ***
 
-    alter table assignment add column grade_id int(11) unsigned not null ;
+    ALTER TABLE assignment ADD COLUMN grade_id int(11) UNSIGNED NOT NULL ;
 
     *** ------------------------------ ***
 
@@ -178,3 +178,19 @@ Advanced Challenge
         |        5 | Not graded                  |
         +----------+-----------------------------+
         5 rows in set (0.00 sec)
+
+Hard Challenge
+
+1) Add constraint to the assignment table that prohibits creating an assignment without an associated student row:
+
+*** Modify the student_id column to be unsigned ***
+*** Just used SequelPro to do it so I didn't have to drop and re-add the table ***
+
+*** Create the index and the foreign key ***
+
+CREATE INDEX idx_student_id
+  ON assignment(student_id);
+
+ALTER TABLE assignment
+  ADD CONSTRAINT idx_student_id
+  FOREIGN KEY (student_id) REFERENCES student(student_id);
