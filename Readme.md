@@ -1,3 +1,4 @@
+```sql
 1) Create a list of students showing first and last names only.
 
     mysql> SELECT first_name, last_name from student;
@@ -194,3 +195,4 @@ CREATE INDEX idx_student_id
 ALTER TABLE assignment
   ADD CONSTRAINT idx_student_id
   FOREIGN KEY (student_id) REFERENCES student(student_id);
+  ```
